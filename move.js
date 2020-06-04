@@ -5,73 +5,108 @@ cadreElt.style.position = "absolute";
 cadreElt.style.height = "450px";
 cadreElt.style.width = "850px"
 cadreElt.style.border = "solid 1px"
-
+cadreElt.style.backgroundImage = "url(img/skywall.jpeg)";
+cadreElt.style.backgroundSize = parseInt(cadreElt.style.width) + "px";
 
 let blocElt = document.getElementById("bloc");
-blocElt.style.width = "75px"
-blocElt.style.height = "15px"
-blocElt.style.backgroundColor = "blue";
-blocElt.style.position = "relative";
-blocElt.style.left = (parseInt(cadreElt.style.width) - parseInt(blocElt.style.width))/2 + "px";
-blocElt.style.bottom = "-425px";
 
+let imgElt = document.querySelector("img");
+imgElt.style.height = "50px";
+imgElt.style.width = "50px";
+imgElt.style.position = "relative";
+imgElt.style.left = (parseInt(cadreElt.style.width) - parseInt(imgElt.style.width))/2 + "px";
+imgElt.style.bottom = (parseInt(cadreElt.style.height) / 4) * -3 + "px";
 
 
 function moveLeft() {
-    if (parseInt(blocElt.style.left) <= 0) {
-        blocElt.style.left = parseInt(blocElt.style.left) -0 + "px";
+    if (parseInt(imgElt.style.left) <= 0) {
+        imgElt.style.left = parseInt(imgElt.style.left) -0 + "px";
     } else {
-        blocElt.style.left = parseInt(blocElt.style.left) -5 + "px";
+        imgElt.style.left = parseInt(imgElt.style.left) -5 + "px";
+        imgElt.style.transform = "rotate(270deg)";
     }
 }
 
 function moveRight() {
-    if (parseInt(blocElt.style.left) >= parseInt(cadreElt.style.width) - parseInt(blocElt.style.width)) {
-        blocElt.style.left = parseInt(blocElt.style.left) -0 + "px";
+    if (parseInt(imgElt.style.left) >= parseInt(cadreElt.style.width) - parseInt(imgElt.style.width)) {
+        imgElt.style.left = parseInt(imgElt.style.left) -0 + "px";
     } else {
-        blocElt.style.left = parseInt(blocElt.style.left) +5 + "px";
+        imgElt.style.left = parseInt(imgElt.style.left) +5 + "px";
+        imgElt.style.transform = "rotate(90deg)";
     }
 }
 
 function moveUp() {
-    if (parseInt(blocElt.style.bottom) >= 0) {
-    blocElt.style.bottom = parseInt(blocElt.style.bottom) -0 + "px";
+    if (parseInt(imgElt.style.bottom) >= 0) {
+        imgElt.style.bottom = parseInt(imgElt.style.bottom) -0 + "px";
     } else {
-        blocElt.style.bottom = parseInt(blocElt.style.bottom) +5 + "px";
+        imgElt.style.bottom = parseInt(imgElt.style.bottom) +5 + "px";
+        imgElt.style.transform = "rotate(0deg)";
     }  
 }
 
 function moveDown() {
-    if (parseInt(blocElt.style.bottom) <= -parseInt(cadreElt.style.height) + parseInt(blocElt.style.height)) {
-        blocElt.style.bottom = parseInt(blocElt.style.bottom) -0 + "px";
+    if (parseInt(imgElt.style.bottom) <= -parseInt(cadreElt.style.height) + parseInt(imgElt.style.height)) {
+        imgElt.style.bottom = parseInt(imgElt.style.bottom) -0 + "px";
     } else {
-        blocElt.style.bottom = parseInt(blocElt.style.bottom) -5 + "px";
+        imgElt.style.bottom = parseInt(imgElt.style.bottom) -5 + "px";
+        imgElt.style.transform = "rotate(180deg)";
     } 
+}
+
+let keys = {
+    gauche : false,
+    droite : false,
+    top : false,
+    descend : false
+}
+
+function toucheAppuye(eKeyCode) {
+    if (keys.gauche) {
+        moveLeft(); 
+    } else if (keys.droite) {
+        moveRight();
+    } else if (keys.top) {
+        moveUp();
+    } else if (keys.descend) {
+        moveDown();
+    }
 }
 
 bodyElt.addEventListener("keydown", function (e) {
     let touche = e.which || e.keyCode
     switch (touche) {
         case 37:
-            moveLeft();
+            keys.gauche = true;
             console.log("gauche");
             break
         case 38:
-            moveUp();
+            keys.top = true;
             console.log("haut");
             break    
         case 39:
-            moveRight();
+            keys.droite = true;
             console.log("droite");
             break
         case 40:
-            moveDown();
+            keys.descend = true;
             console.log("bas");
             break
         default :
             console.log("Touche " + touche + " non gérée");
     }
 })
+
+bodyElt.addEventListener("keyup" , function(e) {
+    if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40 ) {
+        keys.gauche = false;
+        keys.droite = false;
+        keys.top = false;
+        keys.descend = false;
+    }
+})
+
+setInterval(toucheAppuye, 1000/60);
 
 
 
