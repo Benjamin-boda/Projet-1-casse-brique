@@ -3,29 +3,36 @@
 <html>
 
     <head>
-        <title>Casse Brique</title>
+        <title>Strolling Game</title>
         <meta charset="utf-8">
     </head>
 
     <body>
-        <h1>Casse brique</h1>
-        <div id="cadre">
-            <div id="bloc"> <img src="img/vaisseau.png"/> </div>
-            
+
+        <div id="intro">
+            <h1>Move the vessel</h1>
+            <p>Use the arrow keys to move</p>
         </div>
 
-        <footer>
+        <div id="game">
+            <div id="cadre">
+                <div id="bloc"> <img src="img/vaisseau.png"/> </div>
+                
+            </div>
+
+            
             <div id = "perso">
             </div>
-    
+        
             <div id = "fond">
             </div>
-        </footer>
         
+        </div>
 
 
         <script src="move.js"></script>
         <script src="select.js"></script>
+        <script src="display.js"></script>
     </body>
 
 </html>

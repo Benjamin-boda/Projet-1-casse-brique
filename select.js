@@ -21,10 +21,12 @@ persos.forEach ( function(perso) {
     imgPerso.src = perso.link;
     imgPerso.title = perso.name;
     imgPerso.style.border = "solid 1px";
-    imgPerso.style.width = "50px";
+    imgPerso.style.width = "30px";
     imgPerso.style.position = "relative";
     imgPerso.style.padding = "10px";
+    imgPerso.style.marginRight = "10px";
     imgPerso.style.bottom = parseInt(cadreElt.style.height) * -31/30 + "px";
+    
 
     imgPerso.addEventListener("click", function(e) {
         imgElt.src = e.target.src;
@@ -52,11 +54,15 @@ fonds.forEach ( function(fond) {
     imgFond.src = fond.link;
     imgFond.title = fond.name;
     imgFond.style.border = "solid 1px";
-    imgFond.style.width = "50px";
+    imgFond.style.width = "30px";
     imgFond.style.position = "relative";
     imgFond.style.padding = "10px";
+    imgFond.style.marginTop = "10px";
+    imgFond.style.display = "flex";
+    imgFond.style.flexDirection = "column";
     
-    imgFond.style.left = parseInt(cadreElt.style.width) + parseInt(imgFond.style.padding) + "px";
+    
+    imgFond.style.left =  parseInt(cadreElt.style.width) /2.2 + "px";
 
     imgFond.addEventListener("click", function(e) {
         cadreElt.style.backgroundImage = "url(" + e.target.src + ")";
