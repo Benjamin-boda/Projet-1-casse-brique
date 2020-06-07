@@ -1,5 +1,11 @@
 let introElt = document.getElementById("intro");
-introElt.style.textAlign = "center"
+introElt.style.backgroundImage = "url(img/banniere.png)";
+
+introElt.style.backgroundPosition = "center center";
+introElt.style.textAlign = "center";
+introElt.style.color = "white";
+
+
 
 let gameElt  = document.getElementById("game");
 gameElt.style.display = "flex";
