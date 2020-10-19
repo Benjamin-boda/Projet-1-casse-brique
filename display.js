@@ -1,18 +1,15 @@
-let introElt = document.getElementById("intro");
-introElt.style.backgroundImage = "url(img/banniere.png)";
-
-introElt.style.backgroundPosition = "center center";
+const introElt = document.getElementById("intro");
 introElt.style.textAlign = "center";
-introElt.style.color = "white";
+introElt.style.color = "snow";
 
 
 
-let gameElt  = document.getElementById("game");
+const gameElt  = document.getElementById("game");
 gameElt.style.display = "flex";
 gameElt.style.justifyContent = "center"
 
 function responsive(windowWidth) {
-    if (windowWidth.matches) { 
+    if (windowWidth.matches) {
       cadreElt.style.width = "200px";
       imgElt.style.left = (parseInt(cadreElt.style.width) - parseInt(imgElt.style.width))/2 + "px";
       imgElt.style.bottom = (parseInt(cadreElt.style.height) / 4) * -3 + "px";
@@ -23,7 +20,7 @@ function responsive(windowWidth) {
     }
   }
   
-let windowWidth = window.matchMedia("(max-width: 700px)")
+const windowWidth = window.matchMedia("(max-width: 900px)")
 
 responsive(windowWidth);
 

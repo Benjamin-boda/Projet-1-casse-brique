@@ -1,7 +1,7 @@
-let persoElt = document.getElementById("perso");
-let fondElt = document.getElementById("fond");
+const persoElt = document.getElementById("perso");
+const fondElt = document.getElementById("fond");
 
-let persos = [
+const persos = [
     {
         name : "vaisseau 1",
         link : "img/vaisseau.png"
@@ -17,7 +17,7 @@ let persos = [
 ];
 
 persos.forEach ( function(perso) {
-    let imgPerso = document.createElement("img");
+    const imgPerso = document.createElement("img");
     imgPerso.src = perso.link;
     imgPerso.title = perso.name;
     imgPerso.style.border = "solid 1px";
@@ -34,7 +34,7 @@ persos.forEach ( function(perso) {
     persoElt.appendChild(imgPerso);
 })
 
-let fonds = [
+const fonds = [
     {
         name : "skyfall",
         link : "img/skywall.jpeg"
@@ -50,7 +50,7 @@ let fonds = [
 ];
 
 fonds.forEach ( function(fond) {
-    let imgFond = document.createElement("img");
+    const imgFond = document.createElement("img");
     imgFond.src = fond.link;
     imgFond.title = fond.name;
     imgFond.style.border = "solid 1px";

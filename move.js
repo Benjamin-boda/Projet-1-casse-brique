@@ -2,7 +2,7 @@ let bodyElt = document.querySelector("body");
 
 let cadreElt = document.getElementById("cadre");
 cadreElt.style.position = "absolute";
-cadreElt.style.height = "450px";
+cadreElt.style.height = "400px";
 cadreElt.style.width = "1024px"
 cadreElt.style.border = "solid 1px"
 cadreElt.style.backgroundImage = "url(img/skywall.jpeg)";
@@ -10,7 +10,7 @@ cadreElt.style.backgroundSize = parseInt(cadreElt.style.width) + "px";
 
 let blocElt = document.getElementById("bloc");
 
-let imgElt = document.querySelector("img");
+const imgElt = document.querySelector("img");
 imgElt.style.height = "50px";
 imgElt.style.width = "50px";
 imgElt.style.position = "relative";
@@ -74,7 +74,7 @@ function toucheAppuye(eKeyCode) {
 }
 
 bodyElt.addEventListener("keydown", function (e) {
-    let touche = e.which || e.keyCode
+    const touche = e.which || e.keyCode
     switch (touche) {
         case 37:
             keys.gauche = true;
